@@ -5,7 +5,7 @@ from Pages import Datasets
 from Pages import Home
 from Pages import GDP
 from Pages import Raymond
-from Pages import HZ
+from Pages import Survey
 import os
 import pandas as pd
 import numpy as np
@@ -14,8 +14,8 @@ image = Image.open('img/makaki.png')
 st.set_page_config(initial_sidebar_state="collapsed", page_icon=image)
 
 logo_path = os.path.join(os.path.dirname(__file__), "img", "whr.svg")
-pages = [" ",'Home','Datasets', 'GDP', 'Raymond','HZ']
-pages = ['Home', 'Datasets', 'GDP', 'Raymond','HZ']
+pages = [" ",'Home','Datasets', 'GDP', 'Raymond','Survey']
+pages = ['Home', 'Datasets', 'GDP', 'Raymond','Survey']
 
 styles = {
     "nav": {
@@ -67,8 +67,8 @@ elif page == 'GDP':
     GDP.GDP().app()
 elif page == 'Raymond':
     Raymond.Raymond().app()
-elif page == 'HZ':
-    HZ.HZ().app()
+elif page == 'Survey':
+    Survey.Survey().app()
 else:
     Home.Home().app()
 
