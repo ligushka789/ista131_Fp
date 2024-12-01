@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-class YERMAK:
+class Raymond:
     def __init__(self):
         pass
     def load_data(self,file):
@@ -59,7 +59,7 @@ class YERMAK:
                 self.plot_bar_chart(df,category_column, value_column)
 
         else:
-            st.warning("Mb uzhe csvishku to zagruzish...")
+            st.warning("Load the CSV file")
 
         st.markdown("""<style>
                     h1 {
@@ -70,6 +70,6 @@ class YERMAK:
                     </style>""", unsafe_allow_html=True)
 
 if __name__ == '__main__':
-    YERMAK= YERMAK()
-    YERMAK.app()
+    Raymond= Raymond()
+    Raymond.app()
 
