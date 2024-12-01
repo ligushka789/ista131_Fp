@@ -1,97 +1,98 @@
 import streamlit as st
-import cv2
-import tempfile
-import numpy as np
-from pathlib import Path
-from yt_dlp import YoutubeDL
-from streamlit_webrtc import webrtc_streamer, WebRtcMode
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 class GDP:
     def __init__(self):
-        self.cap=None
-
+        pass
 
     def app(self):
-        st.title('Stream contenta josko 0_0')
+        st.title('GDP')
 
-        source_option = st.selectbox(
-            "Sourcik vyberi pacan",
-            ("Pokophone","Youtube Link","Local Drive","Web-Camera","RTSP")
+        # Function to load default data
+        def load_default_data():
+            file_path = 'USA_GDP_dataset_updated.csv'  # Modify this path as needed
+            data = pd.read_csv(file_path)
+            data.columns = data.columns.str.strip()  # Clean column names
+            return data
+
+        # Load the dataset
+        df = load_default_data()
+
+        # Display the dataset
+        st.dataframe(df, height=400, width=600)
+
+        # Simplified labels for Y-axis options
+        simplified_labels = {
+            "GDP": ["AZ GDP (Billions of US $)", "CA GDP (Billions of US $)",
+                    "TX GDP (Billions of US $)", "NM GDP (Billions of US $)"],
+            "Per Capita": ["AZ Per Capita (US $)", "CA Per Capita (US $)",
+                           "TX Per Capita (US $)", "NM Per Capita (US $)"],
+            "Annual Change": ["AZ Annual % Change", "CA Annual % Change",
+                              "TX Annual % Change", "NM Annual % Change"]
+        }
+
+        # Dropdown for selecting X-axis and Y-axis
+        x_axis = st.selectbox("Select X-axis", ["Date"])  # X-axis is fixed to Date
+        y_axis_label = st.selectbox("Select Y-axis", list(simplified_labels.keys()))  # Y-axis simplified options
+
+        if st.button("Generate Graph"):
+            if x_axis and y_axis_label:
+                # Retrieve the actual column names for the selected Y-axis option
+                y_axis_columns = simplified_labels[y_axis_label]
+
+                # Define colors for each state
+                state_colors = {
+                    "AZ GDP (Billions of US $)": "red",
+                    "CA GDP (Billions of US $)": "blue",
+                    "TX GDP (Billions of US $)": "yellow",
+                    "NM GDP (Billions of US $)": "green",
+                    "AZ Per Capita (US $)": "red",
+                    "CA Per Capita (US $)": "blue",
+                    "TX Per Capita (US $)": "yellow",
+                    "NM Per Capita (US $)": "green",
+                    "AZ Annual % Change": "red",
+                    "CA Annual % Change": "blue",
+                    "TX Annual % Change": "yellow",
+                    "NM Annual % Change": "green"
+                }
+
+                # Plot the graph
+                fig, ax = plt.subplots()
+                for column in y_axis_columns:
+                    # Handle missing data by filling NaN values with zeros
+                    cleaned_data = df[column].fillna(0)  # Or use .dropna() to exclude missing values
+                    ax.plot(df["Date"], cleaned_data, marker='o', linestyle='-',
+                            color=state_colors[column], label=column.split(" ")[0])  # Extract state name for the legend
+
+                ax.set_xlabel("Date")
+                ax.set_ylabel(y_axis_label)
+                ax.set_title(f"{y_axis_label} vs Date for All States")
+                ax.legend(title='States')
+
+                # Rotate x-axis labels for readability
+                plt.xticks(rotation=90)
+                st.pyplot(fig)
+            else:
+                st.warning("Please select both X-axis and Y-axis options.")
+
+        # Style customization
+        st.markdown(
+            """
+            <style>
+            h1 {
+                color: blue;
+                font-size: 18px;
+                text-align: center;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
         )
 
-        video_url=None
-        img_file=None
 
-        if source_option == "Pokophone":
-            img_file = st.camera_input("Take a photorrrs")
-
-        elif source_option == "Youtube Link":
-            youtube_url = st.text_input("Put in a link")
-            if youtube_url:
-                with st.spinner("Gruzitsya..."):
-                    try:
-                        ydl_opts = {"format": "best[ext=mp4]/best", "noplaylist":True}
-                        with YoutubeDL(ydl_opts) as ydl:
-                            info_dict = ydl.extract_info(youtube_url,download=False)
-                            video_url = info_dict.get("url", None)
-                    except Exception as e:
-                        st.error(f"Smth is wrong: {e}")
-
-                if video_url:
-                    st.video(video_url)
-
-        elif source_option == "Local Drive":
-            video_file = st.file_uploader("Upload vidos", type=["mp4","avi","mov"])
-            if video_file:
-
-                temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=Path(video_file.name).suffix)
-                temp_file.write(video_file.read())
-                video_url = temp_file.name
-                st.video(video_url)
-
-        elif source_option == "Web-Camera":
-            st.write("Webka gruzitsya...")
-            webrtc_streamer(key="webcam",mode=WebRtcMode.SENDRECV)
-
-        elif source_option == "RTSP":
-            rtsp_url = st.text_input("Put in a rtsp link")
-            if rtsp_url:
-                video_url = rtsp_url
-
-        run_button = st.button("Oh heeeeell naah")
-        frame_place = st.empty()
-
-        if source_option == "Pokophone" and img_file is not None:
-            file_bytes=np.asarray(bytearray(img_file.read()), dtype = np.uint8)
-            frame = cv2.imdecode(file_bytes,1)
-            st.image(frame, channels="BGR")
-
-        elif run_button and video_url is not None and source_option in ["Local Drive", "RTSP"]:
-            self.cap = cv2.VideoCapture(video_url)
-
-
-            if not self.cap.isOpened():
-                st.error("Error")
-            else:
-
-
-                stop_button = st.button("Stop!!!")
-
-                while self.cap.isOpened() and not stop_button:
-                    ret, frame = self.cap.read()
-                    if not ret:
-                        st.write("Idi naher")
-                        break
-
-                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    frame_place.image(frame, channels="RGB")
-
-                    if stop_button:
-                        break
-
-                self.cap.release()
-                cv2.destroyAllWindows()
-
-app = GDP()
-app.app()
+# Run the app
+if __name__ == "__main__":
+    app = GDP()
+    app.app()
