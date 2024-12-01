@@ -4,7 +4,7 @@ from streamlit_navigation_bar import st_navbar
 from Pages import Datasets
 from Pages import Home
 from Pages import BABAYEV
-from Pages import YERMAK
+from Pages import Raymond
 from Pages import HZ
 import os
 import pandas as pd
@@ -14,8 +14,8 @@ image = Image.open('img/makaki.png')
 st.set_page_config(initial_sidebar_state="collapsed", page_icon=image)
 
 logo_path = os.path.join(os.path.dirname(__file__), "img", "whr.svg")
-pages = [" ",'Home','Datasets', 'BABAYEV', 'YERMAK','HZ']
-pages = ['Home', 'Datasets', 'BABAYEV', 'YERMAK','HZ']
+pages = [" ",'Home','Datasets', 'BABAYEV', 'Raymond','HZ']
+pages = ['Home', 'Datasets', 'BABAYEV', 'Raymond','HZ']
 
 styles = {
     "nav": {
@@ -65,8 +65,8 @@ elif page == 'Datasets':
     Datasets.Datasets().app()
 elif page == 'BABAYEV':
     BABAYEV.BABAYEV().app()
-elif page == 'YERMAK':
-    YERMAK.YERMAK().app()
+elif page == 'Raymond':
+    Raymond.Raymond().app()
 elif page == 'HZ':
     HZ.HZ().app()
 else:
