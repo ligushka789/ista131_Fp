@@ -7,7 +7,7 @@ from yt_dlp import YoutubeDL
 from streamlit_webrtc import webrtc_streamer, WebRtcMode
 
 
-class BABAYEV:
+class GDP:
     def __init__(self):
         self.cap=None
 
@@ -93,5 +93,5 @@ class BABAYEV:
                 self.cap.release()
                 cv2.destroyAllWindows()
 
-app = BABAYEV()
+app = GDP()
 app.app()
