@@ -12,7 +12,7 @@ class GDP:
 
         # Function to load default data
         def load_default_data():
-            file_path = 'USA_GDP_dataset_updated.csv'  # Modify this path as needed
+            file_path = 'csv/USA_GDP_dataset_updated.csv'
             data = pd.read_csv(file_path)
             data.columns = data.columns.str.strip()  # Clean column names
             return data
