@@ -19,7 +19,7 @@ pages = ['Home', 'Datasets', 'BABAYEV', 'YERMAK','HZ']
 
 styles = {
     "nav": {
-        "background-color": "darkgreen",
+        "background-color": "grey",
         "display":"flex",
         "justify-content" : "center"
     },
