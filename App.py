@@ -2,7 +2,7 @@ from PIL import Image
 import streamlit as st
 from streamlit_navigation_bar import st_navbar
 from Pages import Datasets
-from Pages import Home
+from Pages import Introduction
 from Pages import GDP
 from Pages import Raymond
 from Pages import Survey
@@ -14,8 +14,8 @@ image = Image.open('img/makaki.png')
 st.set_page_config(initial_sidebar_state="collapsed", page_icon=image)
 
 logo_path = os.path.join(os.path.dirname(__file__), "img", "whr.svg")
-pages = [" ",'Home','Datasets', 'GDP', 'Raymond','Survey']
-pages = ['Home', 'Datasets', 'GDP', 'Raymond','Survey']
+pages = [" ",'Introduction','Datasets', 'GDP', 'Raymond','Survey']
+pages = ['Introduction', 'Datasets', 'GDP', 'Raymond','Survey']
 
 styles = {
     "nav": {
@@ -59,8 +59,8 @@ options = {
 
 page = st_navbar(pages, styles=styles,logo_path=logo_path,options=options )
 
-if page == 'Home':
-    Home.Home().app()
+if page == 'Introduction':
+    Introduction.Introduction().app()
 elif page == 'Datasets':
     Datasets.Datasets().app()
 elif page == 'GDP':
@@ -70,6 +70,6 @@ elif page == 'Raymond':
 elif page == 'Survey':
     Survey.Survey().app()
 else:
-    Home.Home().app()
+    Introduction.Introduction().app()
 
 
