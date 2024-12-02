@@ -13,11 +13,15 @@ class Introduction:
                  This project is aimed at expanding our understanding in dataframe analysis.
                  For this module, our group of three have created different visualizations through the use of
                  libraries that have been explored during ISTA 131 course, such as:
+                 
                  - Pandas
                  - Matplotlib
                  - Numpy
+                 
                  As well as auxiliary required libraries:
-                 -Streamlit
+                 
+                 - Streamlit
+                 
                  """
 
                  )
@@ -38,3 +42,20 @@ class Introduction:
                         repository at: 
                         """)
         st.write("[Github link >](https://github.com/ligushka789/ista131_Fp)")
+
+        st.markdown(
+            """
+            <style>
+            
+            
+            h1 {
+                color: #4CAF50;
+                font-size: 30px;
+                text-align: center;
+                font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            }
+
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )

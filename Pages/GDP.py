@@ -82,9 +82,10 @@ class GDP:
             """
             <style>
             h1 {
-                color: blue;
-                font-size: 18px;
+                color: #4CAF50;
+                font-size: 30px;
                 text-align: center;
+                font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
             }
             </style>
             """,

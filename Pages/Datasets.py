@@ -11,8 +11,8 @@ class Datasets:
         # Define a dictionary with custom dataset names and corresponding file names
         datasets = {
             "Survey about mental health": "survey1.csv",
-            "ПАША Я ХЗ СПРОСИ О ЧЕМ РУСИН ДАТАСЕТ И НАПИШИ СЮДА": "USA_GDP_dataset_updated.csv",
-            "ЭТО ТВОЙ ДАТАСЕТ ПАША Я ХЗ ПИШИ СЮДА ЧО НИТЬ": "tmdb_5000_movies_rfw.csv"
+            "Dataset about GDP per capita for 4 states for time period 1997 - 2022": "USA_GDP_dataset_updated.csv",
+            "Dataset about movies throughout the years and their ratings": "tmdb_5000_movies_rfw.csv"
         }
 
         # Create a selectbox to choose a dataset by its display name
@@ -48,10 +48,13 @@ class Datasets:
         else:
             st.warning("Could not load dataset")
 
-        st.markdown("""<style>
-        h1 {
-        color:blue;
-        font-size:18px;
-        text-align:center;
-        }
-        </style>""", unsafe_allow_html=True)
+        st.markdown("""
+            <style>
+            h1 {
+                color: #4CAF50;
+                font-size: 30px;
+                text-align: center;
+                font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+            }
+            </style>
+        """, unsafe_allow_html=True)
