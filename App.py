@@ -17,6 +17,7 @@ logo_path = os.path.join(os.path.dirname(__file__), "img", "logo-home.svg")
 pages = [" ",'Introduction','Datasets', 'GDP', 'Movies','Survey']
 pages = ['Introduction', 'Datasets', 'GDP', 'Movies','Survey']
 
+
 styles = {
     "nav": {
         "background-color": "transparent",
