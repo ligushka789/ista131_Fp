@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-class Home:
+class Introduction:
     def __init__(self):
         pass
 
