@@ -58,10 +58,12 @@ class Survey:
         # just a style part
         st.markdown(
             """
-            <style>
+           <style>
             h1 {
                 color: #4CAF50;
+                font-size: 30px;
                 text-align: center;
+                font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
             }
             </style>
             """,
