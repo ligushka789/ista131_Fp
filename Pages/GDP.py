@@ -11,6 +11,15 @@ class GDP:
 
     def app(self):
         st.title('GDP')
+        st.subheader("""
+                                     This dataset is aimed to compare the gross domestic product
+                                     of four states: California, New Mexico, Arizona and Texas.
+                                     That information could be beneficial for the comparison of
+                                     economic growth for different regions of the country, which would
+                                     let us indicate the difference of economic situation.
+                                      
+
+                                     """)
         def load_lottieurl(url):
             r = requests.get(url)
             if r.status_code != 200:
