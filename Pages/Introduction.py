@@ -58,7 +58,14 @@ class Introduction:
                         check the sequence of our git actions, you can visit our github
                         repository at: 
                         """)
+
+        #vidos chast'
+        video_file = open('video/video.mp4', 'rb')
+        video_bytes = video_file.read()
+        st.video(video_bytes)
         st.write("[Github link >](https://github.com/ligushka789/ista131_Fp)")
+
+        # vidos chast'
 
 
         st_lottie(lottie_anim1,height=300, key="coding")

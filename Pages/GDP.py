@@ -16,11 +16,8 @@ class GDP:
             if r.status_code != 200:
                 return None
             return r.json()
-            #ЧТОБЫ ПОМЕНЯТЬ АНИМКИ ВСТАВЬ СЮДА ДРУГОЙ ЛИНК ВОТ САЙТ ЛОТТИ
-            #https://lottiefiles.com/search
-            # ТАМ ПИШЕШЬ КЛЮЧЕВОЕ СЛОВО НАПРИМЕР DATABASE ОТКРЫВАЕШЬ НАЖИМАЕШЬ СПРАВА ВНИЗУ GENERATE
-            #БЕРЕШЬ JSON ЛИНК И ВСТАВЛЯЕШЬ СЮДА
-        lottie_anim1 = load_lottieurl("https://lottie.host/ef0d69e7-85c3-41d5-9def-d76e9d129876/f6hH1U5edi.json")
+
+        lottie_anim1 = load_lottieurl("https://lottie.host/474d5a43-b87f-43e5-b72b-fdbdef03d27f/Z6mnyA4rw5.json")
 
         # Function to load default data
         def load_default_data():

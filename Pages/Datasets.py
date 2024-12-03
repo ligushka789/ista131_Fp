@@ -4,18 +4,17 @@ import pandas as pd
 class Datasets:
     def __init__(self):
         pass
-
+        #titles
     def app(self):
         st.title('Datasets')
 
-        # Define a dictionary with custom dataset names and corresponding file names
-        datasets = {
+        datasets = {        # list of our datasets
             "Survey about mental health": "survey1.csv",
             "Dataset about GDP per capita for 4 states for time period 1997 - 2022": "USA_GDP_dataset_updated.csv",
             "Dataset about movies throughout the years and their ratings": "tmdb_5000_movies_rfw.csv"
         }
 
-        # Create a selectbox to choose a dataset by its display name
+       # variable for name of dataset
         dataset_name = st.selectbox("Choose a dataset", list(datasets.keys()))
 
         # Get the corresponding file name based on the selected display name
@@ -23,31 +22,31 @@ class Datasets:
 
 
 
-        # Function to load data from a file
+        # function which load csv file
         def load_data(file_path):
             data = pd.read_csv(file_path)
             return data
 
-        # Load the selected dataset
+
         file_path = f"csv/{file_name}"
         df = load_data(file_path)
 
         if df is not None:
             st.dataframe(df, height=400, width=600)
 
-            # Allow the user to filter by a column
+            # choosing column for filter everything is in selectbox
             column = st.selectbox("Choose column for filter", df.columns)
 
             if column:
                 unique_values = df[column].unique()
-                selected_values = st.multiselect(f"Select values for {column}", options=unique_values,
-                                                 default=unique_values)
+                selected_value = st.selectbox(f"Select a value for {column}", options=unique_values)
 
-                filtered_df = df[df[column].isin(selected_values)]
+                # value for filter
+                filtered_df = df[df[column] == selected_value]
                 st.dataframe(filtered_df, height=400, width=600)
         else:
             st.warning("Could not load dataset")
-
+            #styles part
         st.markdown("""
             <style>
             h1 {
