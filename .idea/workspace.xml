@@ -7,8 +7,6 @@
     <list default="true" id="da94cc3a-e65d-48a5-981c-a3cf801163a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/GDP.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/GDP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Introduction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Introduction.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

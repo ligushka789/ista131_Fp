@@ -7,6 +7,15 @@ class Datasets:
         #titles
     def app(self):
         st.title('Datasets')
+        st.subheader("""    
+                                  Datasets Page
+                                  
+                                  On this page, we can check any of datasets, which was used in 
+                                  this project with any columns and values. Enjoy :)
+                                    
+                                    
+                                    View the content
+                                     """)
 
         datasets = {        # list of our datasets
             "Survey about mental health": "survey1.csv",
