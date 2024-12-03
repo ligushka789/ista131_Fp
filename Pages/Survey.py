@@ -9,6 +9,19 @@ class Survey:
 
     def app(self):
         st.title("Survey Data Analysis")
+        st.subheader("""
+                             This dataset is aimed to see the interdependence of employment in a
+                             technical company and the subsequent consequences for mental health.
+                             For the purity of stats, survey was taken from 5 countries
+                             USA, Canada, Australia, France, the United Kingdom, with gender variable in mind, 
+                             looking first at the stats of people from the survey who consider the presence
+                             or absence of mental problems and their employment in a tech company.
+                             Also, a chart with gender is needed for optional information.
+                             
+                             
+                             View the dataset: 
+                                
+                             """)
 
         def load_default_data():                        #File Reader
             file_path = "csv/survey1.csv"

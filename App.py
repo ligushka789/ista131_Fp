@@ -26,7 +26,7 @@ styles = {
         "max-width": "32rem",
     },
     "span": {
-        "color": "rgb(1,0,126)",
+        "color": "#4CAF50",
         "font-family": "Tahoma, sans-serif",
         "margin": "0, 0.125rem",
         "padding": "0.4375rem 0.625rem",

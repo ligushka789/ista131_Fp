@@ -77,6 +77,8 @@ class Movies:
             else:
                 st.warning("The selected columns are not valid for plotting.")
 
+        st.image("img/mmp.png")
+
         # ------------------------STYLES------------------------
 
 
