@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+#Made by Pavel Yeremenko
 class Movies:
     def __init__(self):
         pass
