@@ -9,3 +9,5 @@ In this project we have 3 completely different datasets and 3 pages with scatter
 Also you just can find the link on a Streamlit Cloud on our github repository.
 
 Here is the link on repos - https://github.com/ligushka789/ista131_Fp
+
+Streamlit cloud - https://final-project-ista131.streamlit.app
