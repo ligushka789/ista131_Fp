@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-
+#Made by Roman Gribanov
 class Survey:
     def __init__(self):
         pass
