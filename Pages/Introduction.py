@@ -14,55 +14,80 @@ class Introduction:
                 return None
             return r.json()
 
+        # create lottie_anim1 and give it json url
         lottie_anim1 = load_lottieurl("https://lottie.host/ef0d69e7-85c3-41d5-9def-d76e9d129876/f6hH1U5edi.json")
 
         # Create two columns
-        text, spacer, video = st.columns([2,0.5,1])
+        left_column, right_column = st.columns([5, 4])
 
-        # Left column for text content
-        with text:
-            st.title('Introduction to the project')
+        # left column for intro
+        with left_column:
+            st.title("Introduction to the Project")
             st.write("---")
-            st.write("""
-                     This project is aimed at expanding our understanding in dataframe analysis.
-                     For this module, our group of three have created different visualizations through the use of
-                     libraries that have been explored during ISTA 131 course, such as:
+            st.write(
+                """
+                This project is aimed at expanding our understanding in dataframe analysis.
+                For this module, our group of three have created different visualizations through the use of
+                libraries that have been explored during ISTA 131 course, such as:
 
-                     - Pandas
-                     - Matplotlib
-                     - Numpy
+                - Pandas
+                - Matplotlib
+                - Numpy
 
-                     As well as auxiliary required libraries:
+                As well as auxiliary required libraries:
 
-                     - Streamlit
-                     """
-                     )
+                - Streamlit
+                """
+            )
             st.write("---")
-            st.subheader("Used environment")
-            st.write("""
-                     In order to offer the easier perception of our visualizations, we've
-                     decided to use the streamlit framework, which allowed us to organize
-                     our work through the use of several pages, one for every member of
-                     our team. 
-                     """)
+            st.subheader("Used Environment")
+            st.write(
+                """
+                In order to offer the easier perception of our visualizations, we've
+                decided to use the Streamlit framework, which allowed us to organize
+                our work through the use of several pages, one for every member of
+                our team.
+                """
+            )
             st.write("---")
-            st.subheader("Repository information")
-            st.write("""
-                        If you wish to review the structure of the content as well as
-                        check the sequence of our git actions, you can visit our github
-                        repository at: 
-                        """)
-            st.write("[Github link >](https://github.com/ligushka789/ista131_Fp)")
+            st.subheader("Repository Information")
+            st.write(
+                """
+                If you wish to review the structure of the content as well as
+                check the sequence of our Git actions, you can visit our GitHub
+                repository at:
+                """
+            )
+            st.write("[GitHub link >](https://github.com/ligushka789/ista131_Fp)")
 
-        # Right column for video and animation
-        with video:
-            video_file = open('video/video.mp4', 'rb')
-            video_bytes = video_file.read()
-            st.video(video_bytes)
+        # right column for video player and animation
+        with right_column:
+            st.subheader("Choose Presentation to Watch:")
+            video_gribanov = "https://youtu.be/Bel9mRRAPGs"
+            video_babayev = "https://youtu.be/eHVcVcBw0aE"
+            video_yeremenko = "https://youtu.be/7FJayrjoWrA"
+            video_in_details = "https://youtu.be/_HRJL-q603A"
 
-        st_lottie(lottie_anim1, height=300, key="coding")
+            # buttons for presentations
+            col1, col2, col3, col4= st.columns(4)
 
-        # Add styling
+            if col1.button("Gribanov"):
+                st.video(video_gribanov)
+
+            if col2.button("Babayev"):
+                st.video(video_babayev)
+
+            if col3.button("Yeremenko"):
+                st.video(video_yeremenko)
+
+            if col4.button("In details"):
+                st.video(video_in_details)
+
+            #add lottie_anim1
+            if lottie_anim1:
+                st_lottie(lottie_anim1, height=300, key="coding")
+
+        # styles part
         st.markdown(
             """
             <style>
