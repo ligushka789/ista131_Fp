@@ -18,7 +18,7 @@ class Introduction:
         lottie_anim1 = load_lottieurl("https://lottie.host/ef0d69e7-85c3-41d5-9def-d76e9d129876/f6hH1U5edi.json")
 
         # Create two columns
-        left_column, right_column = st.columns([5, 4])
+        left_column, right_column = st.columns([5, 3])
 
         # left column for intro
         with left_column:
@@ -69,18 +69,17 @@ class Introduction:
             video_in_details = "https://youtu.be/_HRJL-q603A"
 
             # buttons for presentations
-            col1, col2, col3, col4= st.columns(4)
 
-            if col1.button("Gribanov"):
+            if st.button("Gribanov"):
                 st.video(video_gribanov)
 
-            if col2.button("Babayev"):
+            if st.button("Babayev"):
                 st.video(video_babayev)
 
-            if col3.button("Yeremenko"):
+            if st.button("Yeremenko"):
                 st.video(video_yeremenko)
 
-            if col4.button("In details"):
+            if st.button("In details"):
                 st.video(video_in_details)
 
             #add lottie_anim1
